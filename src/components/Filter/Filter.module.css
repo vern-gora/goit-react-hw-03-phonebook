@@ -1,0 +1,10 @@
+.lable {
+  display: flex;
+  justify-content: center;
+  color: aliceblue;
+  margin-bottom: 30px;
+}
+
+.input {
+  margin-left: 10px;
+}
