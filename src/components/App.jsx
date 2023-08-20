@@ -11,13 +11,17 @@ class App extends Component {
     filter: '',
   };
 
-  // handleNameChange = evt => {
-  //   this.setState({ name: evt.target.value });
-  // };
+  componentDidMount(prevProps, prevState) {
+    const contact = localStorage.getItem('contacts');
+    const parsedContacts = JSON.parse(contact);
+    this.setState({ contacts: parsedContacts });
+  }
 
-  // handleNumberChange = evt => {
-  //   this.setState({ number: evt.target.value });
-  // };
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== this.prevState) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
 
   handleFilterChange = evt => {
     this.setState({ filter: evt.target.value });
